@@ -17,7 +17,7 @@ scalaVersion in ThisBuild := "2.11.8"
 // `set scalazVersion in ThisBuild := "7.2.4"` to change which version of scalaz
 // is used to build the project.
 scalazVersion in ThisBuild := "7.1.10"
-crossScalaVersions in ThisBuild <<= scalaVersion(Seq(_, "2.11.8"))
+crossScalaVersions in ThisBuild <<= scalaVersion(Seq(_, "2.11.8", "2.12.0-RC2"))
 
 // Root project
 name := "root"
@@ -136,8 +136,7 @@ lazy val argonaut = libraryProject("argonaut")
   .settings(
     description := "Provides Argonaut codecs for http4s",
     libraryDependencies ++= Seq(
-      Http4sBuild.argonaut(scalazVersion.value),
-      jawnParser
+      Http4sBuild.argonaut(scalazVersion.value)
     )
   )
   .dependsOn(core % "compile;test->test", jawn % "compile;test->test")
@@ -498,7 +497,7 @@ lazy val noPublishSettings = Seq(
 )
 
 lazy val noCoverageSettings = Seq(
-  ScoverageSbtPlugin.ScoverageKeys.coverageExcludedPackages := ".*"
+  coverageExcludedPackages := ".*"
 )
 
 lazy val mimaSettings = Seq(
