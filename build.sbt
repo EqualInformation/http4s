@@ -17,7 +17,7 @@ scalaVersion in ThisBuild := "2.11.8"
 // `set scalazVersion in ThisBuild := "7.2.4"` to change which version of scalaz
 // is used to build the project.
 scalazVersion in ThisBuild := "7.1.10"
-crossScalaVersions in ThisBuild <<= scalaVersion(Seq(_, "2.11.8", "2.12.0-RC2"))
+crossScalaVersions in ThisBuild := Seq(scalaVersion.value, "2.11.8", "2.12.0")
 
 // Root project
 name := "root"
@@ -451,11 +451,6 @@ lazy val commonSettings = Seq(
     "-Xlint:deprecation",
     "-Xlint:unchecked"
   )},
-  resolvers ++= Seq(
-    Resolver.typesafeRepo("releases"),
-    Resolver.sonatypeRepo("snapshots"),
-    "Scalaz Bintray Repo" at "http://dl.bintray.com/scalaz/releases"
-  ),
   libraryDependencies <++= scalaVersion(v =>
     if (delambdafyOpts(v)) Seq("org.scala-lang.modules" %% "scala-java8-compat" % "0.5.0")
     else Seq.empty
