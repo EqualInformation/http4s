@@ -462,12 +462,12 @@ lazy val commonSettings = Seq(
       "-Ybackend:GenBCode"
     ) else Seq.empty
   }.value,
-  javacOptions ++= jvmTarget.map { jvm => Seq(
-    "-source", jvm,
-    "-target", jvm,
+  javacOptions ++= Seq(
+    "-source", jvmTarget.value,
+    "-target", jvmTarget.value,
     "-Xlint:deprecation",
     "-Xlint:unchecked"
-  )},
+  ),
   libraryDependencies ++= scalaVersion(v =>
     if (delambdafyOpts(v)) Seq("org.scala-lang.modules" %% "scala-java8-compat" % "0.5.0")
     else Seq.empty
