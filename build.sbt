@@ -16,7 +16,7 @@ scalaVersion in ThisBuild := "2.11.8"
 // The build supports both scalaz `7.1.x` and `7.2.x`. Simply run
 // `set scalazVersion in ThisBuild := "7.2.4"` to change which version of scalaz
 // is used to build the project.
-scalazVersion in ThisBuild := "7.1.10"
+scalazVersion in ThisBuild := "7.1.11"
 crossScalaVersions in ThisBuild := Seq("2.10.6", scalaVersion.value, "2.12.0")
 
 // Root project
@@ -236,7 +236,7 @@ lazy val docs = http4sProject("docs")
   .settings(tutSettings)
   .settings(
     libraryDependencies += scalazVersion {szv => argonautShapeless(szv) }.value,
-    libraryDependencies += cryptbits,
+    libraryDependencies += cryptobits,
     description := "Documentation for http4s",
     autoAPIMappings := true,
     unidocProjectFilter in (ScalaUnidoc, unidoc) := inAnyProject --
