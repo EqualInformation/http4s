@@ -462,6 +462,12 @@ lazy val commonSettings = Seq(
       "-Ybackend:GenBCode"
     ) else Seq.empty
   }.value,
+  scalacOptions -= {
+    CrossVersion.partialVersion(scalaVersion.value) match {
+      case Some((2, 12)) => "-Yinline-warnings"
+      case _ => ""
+    }
+  },
   javacOptions ++= Seq(
     "-source", jvmTarget.value,
     "-target", jvmTarget.value,
