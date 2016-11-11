@@ -143,7 +143,7 @@ lazy val argonaut = libraryProject("argonaut")
   .settings(
     description := "Provides Argonaut codecs for http4s",
     libraryDependencies ++= Seq(
-      Http4sBuild.argonaut(scalazVersion.value)
+      Http4sBuild.argonaut
     )
   )
   .dependsOn(core % "compile;test->test", jawn % "compile;test->test")
@@ -235,8 +235,10 @@ lazy val docs = http4sProject("docs")
   .settings(ghpages.settings)
   .settings(tutSettings)
   .settings(
-    libraryDependencies += scalazVersion {szv => argonautShapeless(szv) }.value,
-    libraryDependencies += cryptobits,
+    libraryDependencies ++= Seq(
+      argonautShapeless,
+      cryptobits
+    ),
     description := "Documentation for http4s",
     autoAPIMappings := true,
     unidocProjectFilter in (ScalaUnidoc, unidoc) := inAnyProject --
