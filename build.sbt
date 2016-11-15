@@ -236,7 +236,7 @@ lazy val docs = http4sProject("docs")
   .settings(tutSettings)
   .settings(
     libraryDependencies ++= Seq(
-      argonautShapeless,
+      circeGeneric,
       cryptobits
     ),
     description := "Documentation for http4s",
@@ -292,7 +292,7 @@ lazy val docs = http4sProject("docs")
     git.remoteRepo := "git@github.com:http4s/http4s.git",
     ghpagesNoJekyll := false
   )
-  .dependsOn(client, core, theDsl, blazeServer, blazeClient, argonaut)
+  .dependsOn(client, core, theDsl, blazeServer, blazeClient, circe)
 
 lazy val examples = http4sProject("examples")
   .settings(noPublishSettings)

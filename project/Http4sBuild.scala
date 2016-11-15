@@ -54,7 +54,6 @@ object Http4sBuild {
 
   lazy val alpnBoot            = "org.mortbay.jetty.alpn"    % "alpn-boot"               % "8.1.9.v20160720"
   lazy val argonaut            = "io.argonaut"              %% "argonaut"                % "6.2-RC1"
-  lazy val argonautShapeless   = "com.github.alexarchambault" %% "argonaut-shapeless_6.1" % "1.2.0"
   lazy val asyncHttpClient     = "org.asynchttpclient"       % "async-http-client"       % "2.0.12"
   lazy val blaze               = "org.http4s"               %% "blaze-http"              % "0.12.4"
   lazy val circeGeneric        = "io.circe"                 %% "circe-generic"           % circeJawn.revision
@@ -65,7 +64,7 @@ object Http4sBuild {
   lazy val gatlingHighCharts   = "io.gatling.highcharts"     % "gatling-charts-highcharts" % gatlingTest.revision
   lazy val http4sWebsocket     = "org.http4s"               %% "http4s-websocket"        % "0.1.6"
   lazy val javaxServletApi     = "javax.servlet"             % "javax.servlet-api"       % "3.1.0"
-  lazy val jawnJson4s          = "org.spire-math"           %% "jawn-json4s"             % "0.10.3"
+  lazy val jawnJson4s          = "org.spire-math"           %% "jawn-json4s"             % "0.10.4"
   def jawnStreamz(scalazVersion: String) = "org.http4s"     %% "jawn-streamz"            % scalazCrossBuild("0.10.1", scalazVersion)
   lazy val jettyServer         = "org.eclipse.jetty"         % "jetty-server"            % "9.3.12.v20160915"
   lazy val jettyServlet        = "org.eclipse.jetty"         % "jetty-servlet"           % jettyServer.revision
